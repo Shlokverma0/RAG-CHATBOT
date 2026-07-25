@@ -2,13 +2,31 @@
 
 A locally-hosted AI chatbot that answers questions from **your own documents** using Retrieval-Augmented Generation (RAG), with a hybrid fallback to **live web search** and general knowledge — so it never leaves you without an answer.
 
-Built entirely with **open-source, local models** — no OpenAI key, no API cost, no data ever leaves your machine.
+Built entirely with **open-source, local models** — no OpenAI key required for local use, no data ever leaves your machine.
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)
 ![LangChain](https://img.shields.io/badge/LangChain-RAG-green)
 ![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-black)
 ![Streamlit](https://img.shields.io/badge/Streamlit-UI-red?logo=streamlit&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
+
+---
+
+## 🚀 Live Demo
+
+🔗 **[Try DocMind Live](https://docmind-shlok.streamlit.app)**
+
+> Deployed on Streamlit Community Cloud — chat with the demo document instantly, no setup required.
+
+---
+
+## 📸 Screenshots
+
+### Chat Interface
+![DocMind Chat Interface](https://github.com/user-attachments/assets/ffed847f-3918-406c-ad36-022411c05902)
+
+### Question & Answer in Action
+![DocMind Demo](https://github.com/user-attachments/assets/c9523f1b-83c9-42e1-b876-3ad656696565)
 
 ---
 
@@ -31,7 +49,7 @@ This means you can ask it *anything* — from "What's in my resume?" to "Who is 
 - 🌐 **Live Web Search Fallback** — automatically detects time-sensitive queries and fetches real-time info
 - 🕒 **Accurate Real-Time Date/Time** — pulls exact date/time directly from a time API instead of guessing
 - 💬 **Clean Chat UI** — built with Streamlit, includes chat history and source attribution
-- ⚡ **Zero API Cost** — no OpenAI/Anthropic key required; uses free local models via Ollama
+- ⚡ **Zero API Cost (local mode)** — no OpenAI/Anthropic key required; uses free local models via Ollama
 
 ---
 
@@ -81,7 +99,7 @@ This means you can ask it *anything* — from "What's in my resume?" to "Who is 
 
 ---
 
-## 📦 Installation & Setup
+## 📦 Installation & Setup (Run Locally)
 
 ### Prerequisites
 - Python 3.12
@@ -148,9 +166,12 @@ python query.py
 
 ```
 RAG-CHATBOT/
-├── app.py              # Streamlit web UI
-├── ingest.py            # Document loader + vector DB builder
-├── query.py             # Core RAG + web search + LLM logic
+├── app.py              # Streamlit web UI (local, Ollama-based)
+├── ingest.py            # Document loader + vector DB builder (local)
+├── query.py             # Core RAG + web search + LLM logic (local)
+├── app_cloud.py          # Streamlit web UI (cloud deployment version)
+├── ingest_cloud.py       # Vector DB builder for cloud deployment
+├── query_cloud.py        # RAG + web search logic for cloud deployment
 ├── docs/                 # Your documents go here
 ├── chroma_db/            # Auto-generated vector database (gitignored)
 ├── requirements.txt      # Python dependencies
@@ -164,7 +185,7 @@ RAG-CHATBOT/
 - [ ] Support for `.docx` and `.csv` files
 - [ ] GPU acceleration for faster inference
 - [ ] Chat memory across sessions
-- [ ] Deploy as a hosted web app
+- [ ] Multi-user support with authentication
 
 ---
 
