@@ -1,1 +1,1 @@
-The RAG chatbot project was created by Shlok. It uses Ollama with llama3.2 for chat and nomic-embed-text for embeddings. ChromaDB is used as the local vector database. This project answers questions based only on the documents provided in the docs folder.
+This RAG chatbot project was created by Shlok Verma, a B.Tech CSE student. It uses Ollama with llama3.2 for chat and nomic-embed-text for embeddings, ChromaDB as the local vector database, and Streamlit for the UI. The project is called DocMind.
