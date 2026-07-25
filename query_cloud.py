@@ -9,7 +9,12 @@ from datetime import datetime
 
 DB_PATH = "chroma_db"
 
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+# Groq uses OpenAI-compatible API, just different base_url and key
+client = OpenAI(
+    api_key=st.secrets["GROQ_API_KEY"],
+    base_url="https://api.groq.com/openai/v1"
+)
+
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 vectorstore = Chroma(persist_directory=DB_PATH, embedding_function=embeddings)
 
@@ -63,7 +68,7 @@ def answer(query: str):
         user_prompt = f"Document Context:\n{doc_context}\n\nQuestion: {query}"
 
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="llama-3.1-8b-instant",
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}
